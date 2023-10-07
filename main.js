@@ -43,6 +43,9 @@ app.post('/foto2',function(req,res){
     })
     res.json("todo bien")
 })
+app.get('/halo',(req,res)=>{
+    res.json("halo")
+})
 app.listen(4000,()=>{
     console.log("Andando desde el puerto 4000")    
 })
