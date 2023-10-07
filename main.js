@@ -10,10 +10,11 @@ const storage = multer.diskStorage({
         cb(null,file.fieldname+"-"+Date.now()+".png")
     }
 })
-const upload = multer({ storage:storage })
+const upload = multer({ storage:storage ,limits: { fileSize: 5 * 1024 * 1024 },})
 app.use('/public', express.static('public'));
 app.post('/foto', upload.single('foto'), function (req, res, next) {
-    
+    console.log(req.body)
+    console.log(req.file)
     res.json("todo bien")
 })
 app.listen(4000,()=>{
