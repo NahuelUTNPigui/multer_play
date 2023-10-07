@@ -1,5 +1,7 @@
 const express = require('express')
 const multer  = require('multer')
+const dotenv = require('dotenv')
+dotenv.config()
 const app = express()
 var path = require('path');
 const storage = multer.diskStorage({
@@ -44,7 +46,7 @@ app.post('/foto2',function(req,res){
     res.json("todo bien")
 })
 app.get('/halo',(req,res)=>{
-    res.json("halo")
+    res.json(process.env.HOLA)
 })
 app.listen(4000,()=>{
     console.log("Andando desde el puerto 4000")    
